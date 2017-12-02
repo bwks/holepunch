@@ -1,6 +1,6 @@
 # holepunch
 Python library to generate ACL and firewall rules for network devices.  
-This project is in the early stages so is not garaunteed to have breaking changes.
+This project is in the early stages so is not guaranteed to have breaking changes.
 
 ## Project Goals
 - Create service/object groups based on YAML input

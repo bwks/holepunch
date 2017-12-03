@@ -1,12 +1,18 @@
 {# SRX service 
-
-application tcp-5000 {
-    protocol tcp;
-    destination-port 5000;
+applications {
+    application tcp-5000 {
+        protocol tcp;
+        destination-port 5000;
+    }
 }
-
 #}
-application {{ protocol }}-{{ port }} {
-    protocol {{ protocol }};
-    destination-port {{ port }};
+applications {
+{% for key, value in applications.items() %}
+  {% for v in value %}
+    application {{ key }}-{{ v.port }} {
+        protocol {{ key }};
+        destination-port {{ v.port }};
+    }
+  {% endfor %}
+{% endfor %}
 }

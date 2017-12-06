@@ -30,16 +30,12 @@ tcp:
 ```
 object service tcp-25
  service tcp destination eq 25
-  
 object service tcp-53
  service tcp destination eq 53
-  
 object service tcp-88
  service tcp destination eq 88
-  
 object service tcp-135
  service tcp destination eq 135
-  
 object service tcp-139
  service tcp destination eq 139
 ```

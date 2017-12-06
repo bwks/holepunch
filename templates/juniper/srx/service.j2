@@ -12,7 +12,7 @@ applications {
     {% if port_range %}
     application {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }} {
         protocol {{ key }};
-        destination-port {{{ v.port_range.start }}-{{ v.port_range.end }};
+        destination-port {{ v.port_range.start }}-{{ v.port_range.end }};
     }
     {% else %}
     application {{ key }}-{{ v.port }} {

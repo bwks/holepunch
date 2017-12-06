@@ -1,0 +1,12 @@
+{#
+object service tcp-5000
+ service tcp destination eq 5000
+#}
+
+{% for key, value in services.items() %}
+  {% for v in value %}
+object service {{ key }}-{{ port }}
+ service {{ key }} destination eq {{ port }}
+  {% endfor %}
+{% endfor %}
+

@@ -7,12 +7,19 @@ applications {
 }
 #}
 applications {
-{% for key, value in applications.items() %}
+{% for key, value in services.items() %}
   {% for v in value %}
+    {% if port_range %}
+    application {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }} {
+        protocol {{ key }};
+        destination-port {{{ v.port_range.start }}-{{ v.port_range.end }};
+    }
+    {% else %}
     application {{ key }}-{{ v.port }} {
         protocol {{ key }};
         destination-port {{ v.port }};
     }
+    {% endif %}
   {% endfor %}
 {% endfor %}
 }

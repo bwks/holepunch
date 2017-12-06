@@ -12,36 +12,28 @@ This project is in the early stages so I cannot guarantee it will not have break
 ## Example Input Data
 
 ```yaml
-tcp:
-  - port: 25 
-    description: "SMTP"
-  - port: 53 
-    description: "DNS"
-  - port: 88
-    description: "Kerberos"
-  - port: 135
-    description: "RPC, EPM"
-  - port: 139
+protocols:
+  tcp:
+    - port: 25 
+      description: "SMTP"
+    - port: 53 
+      description: "DNS"
+    - port: 88
+      description: "Kerberos"
 ```
 
 ## Example Template Rendering
 
-### Cisco ASA Service
-```
-object service tcp-25
- service tcp destination eq 25
-object service tcp-53
- service tcp destination eq 53
-object service tcp-88
- service tcp destination eq 88
-object service tcp-135
- service tcp destination eq 135
-object service tcp-139
- service tcp destination eq 139
-```
+```python
+import yaml
 
-### Junpier SRX Application
-```
+from utils.loaders import render_from_template
+
+with open('services/microsoft-ad.yml', 'r') as f:                        
+    data = yaml.load(f)
+
+print(render_from_template('templates/juniper/srx/', 'service.j2', **data))
+
 applications {
     application tcp-25 {
         protocol tcp;
@@ -55,13 +47,20 @@ applications {
         protocol tcp;
         destination-port 88;
     }
-    application tcp-135 {
-        protocol tcp;
-        destination-port 135;
-    }
-    application tcp-139 {
-        protocol tcp;
-        destination-port 139;
-    }
+.
+.
+.
 }
+
+print(render_from_template('templates/cisco/asa/', 'service.j2', **data))
+
+object service tcp-25
+ service tcp destination eq 25
+object service tcp-53
+ service tcp destination eq 53
+object service tcp-88
+.
+.
+.
 ```
+

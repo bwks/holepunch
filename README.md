@@ -32,6 +32,7 @@ from utils.loaders import render_from_template
 with open('services/microsoft-ad.yml', 'r') as f:                        
     data = yaml.load(f)
 
+# Juniper SRX
 print(render_from_template('templates/juniper/srx/', 'service.j2', **data))
 
 applications {
@@ -52,6 +53,7 @@ applications {
 .
 }
 
+# Cisco ASA
 print(render_from_template('templates/cisco/asa/', 'service.j2', **data))
 
 object service tcp-25

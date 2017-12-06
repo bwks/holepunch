@@ -3,10 +3,15 @@ object service tcp-5000
  service tcp destination eq 5000
 #}
 
-{% for key, value in services.items() %}
-  {% for v in value %}
-object service {{ key }}-{{ port }}
- service {{ key }} destination eq {{ port }}
+{% for key, value in protocols.items() %}
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
+object service {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
+ service {{ key }} destination range {{ v.port_range.start }} {{ v.port_range.end }}
+    {% else %}
+object service {{ key }}-{{ v.port }}
+ service {{ key }} destination eq {{ v.port }}
+    {% endif %}
   {% endfor %}
 {% endfor %}
 

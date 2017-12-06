@@ -7,9 +7,9 @@ applications {
 }
 #}
 applications {
-{% for key, value in services.items() %}
-  {% for v in value %}
-    {% if port_range %}
+{% for key, value in protocols.items() %}
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
     application {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }} {
         protocol {{ key }};
         destination-port {{ v.port_range.start }}-{{ v.port_range.end }};

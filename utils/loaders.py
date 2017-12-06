@@ -26,3 +26,19 @@ def file_system_loader(search_paths, trim_blocks=True, lstrip_blocks=True):
     return Environment(loader=FileSystemLoader(searchpath=search_paths),
         trim_blocks=trim_blocks, lstrip_blocks=lstrip_blocks)
 
+def render_from_template(directory, template_name, **kwargs):
+    """
+    from: https://www.pydanny.com/jinja2-quick-load-function.html. Thanks pydanny
+    >>> from simple_script import render_from_template
+    >>> data = {
+    ...     "date": "June 12, 2014",
+    ...     "items": ["oranges", "bananas", "steak", "milk"]
+    ... }
+    >>> render_from_template(".", "shopping_list.html", **data)
+
+    """
+    loader = FileSystemLoader(directory)
+    env = Environment(loader=loader)
+    template = env.get_template(template_name)
+    return template.render(**kwargs)
+

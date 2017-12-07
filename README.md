@@ -91,7 +91,7 @@ with open('services/microsoft-ad.yml', 'r') as f:
     data = yaml.load(f)
 
 # Juniper SRX
-print(render_from_template('templates/juniper/srx/', 'service.j2', **data))
+print(render_from_template('templates/juniper/srx/', 'application.j2', **data))
 
 applications {
     application tcp-25 {

@@ -12,6 +12,7 @@ This project is in the early stages so I cannot guarantee it will not have break
 ## Example Input Data
 
 ```yaml
+description: "microsoft-ad"
 protocols:
   tcp:
     - port: 25 

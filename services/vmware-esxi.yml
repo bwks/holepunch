@@ -1,0 +1,60 @@
+---
+# https://kb.vmware.com/s/article/1012382
+description: "vmware-esxi"
+protocols:
+  tcp:
+    - port: 22
+      description: "SSH"
+    - port: 80
+      description: "HTTP welcome and download links"
+    - port: 427
+      description: "CIM client uses the Service Location Protocol, version 2 (SLPv2) to find CIM servers"
+    - port: 443
+      description: "HTTPS"
+    - port: 546
+      description: "DHCP client for IPv6"
+    - port: 902
+      description: "vCenter Server agent"
+    - port: 5988
+      description: "Server for CIM (Common Information Model)"
+    - port: 5989
+      description: "Secure server for CIM"
+    - port: 8889
+      description: "Server for CIM (Common Information Model)"
+    - port: 8000
+      description: "vMotion"
+    - port: 8080
+      description: "vSAN VASA Vendor Provider"
+    - port: 8100
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8200
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8300
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8301
+      description: "Synchronizing states of distributed virtual ports between hosts"
+    - port: 8302
+      description: "Synchronizing states of distributed virtual ports between hosts"
+  udp:
+    - port: 68
+      description: "DHCP client"
+    - port: 161
+      description: "SNMP"
+    - port: 427
+      description: "CIM client uses the Service Location Protocol, version 2 (SLPv2) to find CIM servers"
+    - port: 546
+      description: "DHCP client for IPv6"
+    - port: 902
+      description: "vCenter Server agent"
+    - port: 6999
+      description: "NSX Virtual Distributed Router service"
+    - port: 8100
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8200
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8300
+      description: "Traffic between hosts for vSphere Fault Tolerance (FT)."
+    - port: 8301
+      description: "Synchronizing states of distributed virtual ports between hosts"
+    - port: 8302
+      description: "Synchronizing states of distributed virtual ports between hosts"

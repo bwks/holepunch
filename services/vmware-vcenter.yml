@@ -1,6 +1,6 @@
 ---
 # https://kb.vmware.com/s/article/2106283 | vCenter server 6
-description: "vmware-vcenter-to-esxi"
+description: "vmware-vcenter"
 protocols:
   tcp:
     - port: 22

@@ -1,7 +1,20 @@
 {#
-object-group service ms-ad tcp
- port-object eq 5000
- port-object range 5500 5510
+object-group service microsoft-ad-tcp tcp
+ port-object eq 25
+ port-object eq 53
+ port-object eq 88
+ port-object eq 135
+ port-object eq 139
+ port-object eq 389
+ port-object eq 445
+ port-object eq 464
+ port-object eq 636
+ port-object eq 3268
+ port-object eq 3269
+ port-object eq 5722
+ port-object eq 9389
+ port-object range 1024 5000
+ port-object range 49152 65535
 #}
 
 {% for key, value in protocols.items() %}

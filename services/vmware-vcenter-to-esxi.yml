@@ -1,0 +1,67 @@
+---
+# https://kb.vmware.com/s/article/2106283 | vCenter server 6
+description: "vmware-vcenter-to-esxi"
+protocols:
+  tcp:
+    - port: 22
+      description: "SSH"
+    - port: 80
+      description: "HTTP"
+    - port: 88
+      description: "VMware key distribution center port"
+    - port: 389
+      description: "LDAP"
+    - port: 443
+      description: "HTTPS"
+    - port: 514
+      description: "Syslog"
+    - port: 636
+      description: "LDAPS"
+    - port: 902
+      description: "vCenter Server system uses to send data to managed hosts"
+    - port: 903
+      description: "Access a virtual machine console from the vSphere Client when the vSphere Client directly connected to the ESXi host"
+    - port: 1514
+      description: "TLS Syslog"
+    - port: 2012
+      description: "Control interface RPC for vCenter Single Sign-On (SSO)"
+    - port: 2014
+      description: "RPC port for all VMCA (VMware Certificate Authority) APIs"
+    - port: 2020
+      description: "Authentication framework management"
+    - port: 5480
+      description: vCenter Server Appliance Web Console (VAMI)"
+    - port: 6500
+      description: "ESXi Dump Collector port"
+    - port: 6501
+      description: "Auto Deploy service"
+    - port: 6502
+      description: "Auto Deploy management"
+    - port: 7444
+      description: "Secure Token Service"
+    - port: 8010
+      description: "vSAN Observer (Optional - only applicable if running vSAN)"
+    - port: 8088
+      description: "Workflow Management Service"
+    - port: 9443
+      description: "vSphere Web Client HTTPS"
+    - port: 11711
+      description: "VMware Directory service (vmdir) LDAP"
+    - port: 11712
+      description: "VMware Directory service (vmdir) LDAPS"
+  udp:
+    - port: 389
+      description: "LDAP" 
+    - port: 514
+      description: "Syslog"
+    - port: 902
+      description: "vCenter Server system uses to send data to managed hosts"
+    - port: 903
+      description: "Access a virtual machine console from the vSphere Client when the vSphere Client directly connected to the ESXi host"
+    - port: 1514
+      description: "TLS Syslog"
+    - port: 2020
+      description: "Authentication framework management"
+    - port: 6500
+      description: "ESXi Dump Collector port"
+

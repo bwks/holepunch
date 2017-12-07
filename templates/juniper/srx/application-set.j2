@@ -1,0 +1,21 @@
+{# SRX service 
+applications {
+    application-set test-tcp {
+        application tcp-135;
+        application tcp-389;
+    }
+}
+#}
+applications {
+{% for key, value in protocols.items() %}
+    application-set {{ description }}-{{ key }} {
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
+        application {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }};
+    {% else %}
+        application {{ key }}-{{ v.port }};
+    {% endif %}
+  {% endfor %}
+    }
+{% endfor %}
+}

@@ -1,0 +1,17 @@
+{#
+object-group service ms-ad tcp
+ port-object eq 5000
+ port-object range 5500 5510
+#}
+
+{% for key, value in protocols.items() %}
+object-group service {{ description }}-{{ key }} {{ key }}
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
+ port-object range {{ v.port_range.start }} {{ v.port_range.end }}
+    {% else %}
+ port-object eq {{ v.port }}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+

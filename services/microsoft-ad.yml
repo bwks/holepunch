@@ -1,6 +1,7 @@
 ---
 # https://technet.microsoft.com/en-us/library/dd772723(v=ws.10).aspx
 # https://blogs.technet.microsoft.com/askds/2007/08/24/dynamic-ports-in-windows-server-2008-and-windows-vista-or-how-i-learned-to-stop-worrying-and-love-the-iana/
+description: "microsoft-ad"
 protocols:
   tcp:
     - port: 25 

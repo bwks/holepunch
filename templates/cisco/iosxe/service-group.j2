@@ -1,0 +1,17 @@
+{#
+object-group service test-tcp 
+ group-object tcp-9389
+ group-object tcp-5722
+#}
+
+{% for key, value in protocols.items() %}
+object-group service {{ description }}-{{ key }}
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
+ group-object {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
+    {% else %}
+ group-object {{ key }}-{{ v.port }}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+

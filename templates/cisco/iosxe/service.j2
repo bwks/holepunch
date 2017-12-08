@@ -1,0 +1,19 @@
+{#
+object-group service tcp-5000
+ tcp eq 5000
+object-group service tcp-6000-7000
+ tcp range 6000 7000
+#}
+
+{% for key, value in protocols.items() %}
+  {% for v in protocols[key] %}
+    {% if v.port_range %}
+object-group service {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
+ {{ key }} range {{ v.port_range.start }} {{ v.port_range.end }}
+    {% else %}
+object-group service {{ key }}-{{ v.port }}
+ {{ key }} {{ v.port }}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+

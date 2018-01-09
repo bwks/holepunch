@@ -1,0 +1,11 @@
+---
+name: "test-acl"
+  - description: "Microsoft Active Directory"
+    source: "10.0.0.0/24" 
+    destination: "172.16.0.0/24"
+    service: "microsoft-ad"
+
+  - description: "VMware ESXi"
+    source: "10.0.0.0/24"
+    destination: "172.16.0.0/24"
+    service: "vmware-esxi"

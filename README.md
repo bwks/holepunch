@@ -2,6 +2,8 @@
 Python library to generate ACL and firewall rules for network devices.  
 This project is in the early stages so I cannot guarantee it will not have breaking changes.
 
+Note: This project is tested with python3.6+ other versions of python are not supported, but may work.
+
 ## Project Goals
 - Create service/object groups based on YAML input
 - Create vendor specific ACL's based on YAML input

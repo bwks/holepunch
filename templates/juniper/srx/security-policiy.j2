@@ -1,0 +1,35 @@
+{#
+security {
+    policies {
+        global {
+            policy some-policy {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application junos-icmp-all;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+}
+#}
+
+security {
+    policies {
+        global {
+            policy {{ name }} {
+                match {
+                    source-address {{ source }};
+                    destination-address {{ destination }};
+                    application {{ application }};
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+}

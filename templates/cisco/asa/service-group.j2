@@ -19,7 +19,7 @@ object-group service microsoft-ad-tcp tcp
 
 {% for key, value in protocols.items() %}
 object-group service {{ description }}-{{ key }} {{ key }}
-  {% for v in protocols[key] %}
+  {% for v in value %}
     {% if v.port_range %}
  port-object range {{ v.port_range.start }} {{ v.port_range.end }}
     {% else %}

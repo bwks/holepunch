@@ -6,7 +6,7 @@ object-group service tcp-6000-7000
 #}
 
 {% for key, value in protocols.items() %}
-  {% for v in protocols[key] %}
+  {% for v in value %}
     {% if v.port_range %}
 object-group service {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
  {{ key }} range {{ v.port_range.start }} {{ v.port_range.end }}

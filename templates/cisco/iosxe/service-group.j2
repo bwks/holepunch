@@ -6,7 +6,7 @@ object-group service test-tcp
 
 {% for key, value in protocols.items() %}
 object-group service {{ description }}-{{ key }}
-  {% for v in protocols[key] %}
+  {% for v in value %}
     {% if v.port_range %}
  group-object {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
     {% else %}

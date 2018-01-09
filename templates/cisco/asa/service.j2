@@ -4,7 +4,7 @@ object service tcp-5000
 #}
 
 {% for key, value in protocols.items() %}
-  {% for v in protocols[key] %}
+  {% for v in value %}
     {% if v.port_range %}
 object service {{ key }}-{{ v.port_range.start }}-{{ v.port_range.end }}
  service {{ key }} destination range {{ v.port_range.start }} {{ v.port_range.end }}

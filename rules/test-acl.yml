@@ -1,11 +1,44 @@
 ---
-name: "test-acl"
-  - description: "Microsoft Active Directory"
-    source: "10.0.0.0/24" 
-    destination: "172.16.0.0/24"
+name: "test-policy"
+zone:
+  source: "bag-end"
+  destination: "mordor"
+rules:
+  - name: "microsoft-ad"
+    description: "Microsoft Active Directory"
+    protocol: ""
+    source:
+      name: "net-10.0.0.0/24"
+      address: ""
+      prefix_length: ""
+      port: ""
+    destination:
+      name: "net-172.16.0.0/24"
+      address: ""
+      prefix_length: ""
+      port: ""
     service: "microsoft-ad"
-
-  - description: "VMware ESXi"
-    source: "10.0.0.0/24"
-    destination: "172.16.0.0/24"
+    action: "permit"
+    log: 
+      enable: False
+      when: ""
+  
+  - name: "vmware-esxi"
+    description: "VMware ESXi"
+    protocol: ""
+    source:
+      name: "net-10.0.0.0/24"
+      address: ""
+      prefix_length: ""
+      port: ""
+    destination:
+      name: "net-172.16.0.0/24"
+      address: ""
+      prefix_length: ""
+      port: ""
     service: "vmware-esxi"
+    action: "permit"
+    log:
+      enable: False
+      when: ""
+

@@ -27,8 +27,8 @@ security {
 {% for rule in rules %}
             policy {{ rule.name }} {
                 match {
-                    source-address {{ rule.source_address }}/{{ rule.source_prefix_length }};
-                    destination-address {{ rule.destination_address }}/{{ rule.destination_prefix_length }};
+                    source-address {{ rule.source.name }};
+                    destination-address {{ rule.destination.name }}; 
                     application {{ rule.service }};
                 }
                 then {

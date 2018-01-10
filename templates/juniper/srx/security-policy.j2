@@ -1,0 +1,41 @@
+{#
+security {
+    policies {
+        global {
+            policy test-policy {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application junos-icmp-all;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+}
+#}
+
+security {
+    policies {
+{% if zone.source %} 
+        from-zone {{ zone.source }} to-zone {{ zone.destination }} {
+{% else %}
+        global {
+{% endif %}
+{% for rule in rules %}
+            policy {{ rule.name }} {
+                match {
+                    source-address {{ rule.source_address }}/{{ rule.source_prefix_length }};
+                    destination-address {{ rule.destination_address }}/{{ rule.destination_prefix_length }};
+                    application {{ rule.service }};
+                }
+                then {
+                    {{ rule.action }};
+                }
+            }
+{% endfor %}
+        }
+    }
+}

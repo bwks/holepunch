@@ -1,0 +1,19 @@
+{#
+ip access-list extended test
+   10 permit tcp 10.10.10.0/24 20.20.20.0/24 eq 5000
+   20 permit tcp 10.10.10.0/24 20.20.20.0/24 range 2000 3000
+!
+#}
+
+{% for rule in rules %}
+ip access-list extended {{ rule.name }}
+  {% for key, value in rule.application.items() %}
+    {% if value.port_range %}
+   {{ rule.action }} {{ key }} {{ rule.source }} {{ rule.destination }} range {{ value.port_range.start }} {{ value.port_range.end }}
+    {% else %}
+   {{ rule.action }} {{ key }} {{ rule.source }} {{ rule.destination }} eq {{ value.destination_port }}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+!
+

@@ -102,3 +102,6 @@ ENV/
 
 # pipenv
 Pipfile.lock
+
+# editors
+.idea/
